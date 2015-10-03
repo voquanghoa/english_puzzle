@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_menu"
+    >
+
+    <englishpuzzle.eduappad.com.englishpuzzle.control.EffectfulImageView
+        android:src="@drawable/getmore"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/exercise"
+        android:layout_marginBottom="-60dp"
+        style="@style/MainMenuButton"
+        />
+    <englishpuzzle.eduappad.com.englishpuzzle.control.EffectfulImageView
+        android:src="@drawable/lesson"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        style="@style/MainMenuButton"
+        />
+    <englishpuzzle.eduappad.com.englishpuzzle.control.EffectfulImageView
+        android:id="@+id/exercise"
+        android:src="@drawable/exercise"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        style="@style/MainMenuButton"
+        />
+</RelativeLayout>

@@ -19,6 +19,11 @@
             android:launchMode= "singleInstance"
            />
         <activity
+            android:name=".MainMenuActivity"
+            android:label="@string/puzzle1"
+            android:launchMode= "singleInstance"
+            />
+        <activity
             android:name=".SplashActivity"
             android:label="@string/puzzle1"
             android:launchMode= "singleInstance"
