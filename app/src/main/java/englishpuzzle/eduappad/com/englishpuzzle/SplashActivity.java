@@ -19,7 +19,7 @@ public class SplashActivity extends BaseActivity implements Runnable {
     }
 
     public void run() {
-        startActivity(new Intent(this,MainMenuActivity.class));
+        startActivity(new Intent(this,MainActivity.class));
         finish();
     }
 }

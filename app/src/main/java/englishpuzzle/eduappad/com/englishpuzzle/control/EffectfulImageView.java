@@ -1,8 +1,12 @@
 package englishpuzzle.eduappad.com.englishpuzzle.control;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,8 +19,14 @@ import englishpuzzle.eduappad.com.englishpuzzle.R;
  * Created by Vo Quang Hoa on 03/10/2015.
  */
 public class EffectfulImageView extends ImageView {
+
     private int effectColor = 0x77eeddff;
-    private Runnable onClickAction;
+    private OnClickListener onClickAction;
+    private String textOverlay;
+    private int textOverlayWidth;
+    private int textOverlayHeight;
+    private Paint paint;
+    private static Typeface tf ;
 
     public EffectfulImageView(Context context) {
         super(context);
@@ -53,17 +63,55 @@ public class EffectfulImageView extends ImageView {
                 return true;
             }
         });
+
+
+        if(tf == null){
+            tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/RobotoCondensed-Regular.ttf");
+        }
+
+        paint = new Paint();
+        paint.setColor(Color.BLUE);
+        paint.setAntiAlias(true);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setTypeface(tf);
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        paint.setTextSize(scale*20);
     }
 
     private void clickFeedback(){
-        Runnable action = onClickAction;
+        OnClickListener action = onClickAction;
 
         if(action != null){
-            action.run();
+            action.onClick(this);
         }
     }
 
-    public void setOnClickAction(Runnable action){
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        if(textOverlay!=null && textOverlay!=""){
+            canvas.drawText(textOverlay,getWidth()/2,getHeight()/2+textOverlayHeight,paint);
+        }
+    }
+
+    public void setTextOverlay(String textOverlay){
+        if(this.textOverlay != textOverlay){
+            this.textOverlay = textOverlay;
+
+            if(textOverlay!=null && textOverlay!=""){
+                Rect bounds = new Rect();
+                paint.getTextBounds(textOverlay,0,textOverlay.length(),bounds);
+
+                textOverlayHeight = bounds.height()/2;
+                textOverlayWidth = bounds.width()/2;
+            }
+
+
+            invalidate();
+        }
+    }
+
+    public void setOnClickAction(OnClickListener action){
         onClickAction = action;
     }
 }

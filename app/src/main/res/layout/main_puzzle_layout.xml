@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/puzzlebg"
+    >
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/puzzleheader"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="5dp"
+        />
+    <englishpuzzle.eduappad.com.englishpuzzle.control.EffectfulImageView
+        android:layout_width="@dimen/puzzle_button_size"
+        android:layout_height="@dimen/puzzle_button_size"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="@dimen/puzzle_button_margin"
+        android:src="@drawable/home"
+        />
+    <englishpuzzle.eduappad.com.englishpuzzle.control.EffectfulImageView
+        android:id="@+id/audio"
+        android:layout_width="@dimen/puzzle_button_size"
+        android:layout_height="@dimen/puzzle_button_size"
+        android:layout_below="@+id/header"
+        android:layout_marginRight="@dimen/puzzle_button_margin"
+        android:src="@drawable/audio"
+        android:layout_alignParentRight="true"
+        />
+    <View
+        android:id="@+id/anchor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/audio"
+        />
+
+    <englishpuzzle.eduappad.com.englishpuzzle.control.KeyboardControl
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

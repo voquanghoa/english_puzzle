@@ -70,7 +70,7 @@ public class DataController implements IWebService{
                 }
             }
         };
-        WebController.getInstance().DownloadContent(context,"categories.json",handler);
+        WebController.getInstance().DownloadContent(context,"data/categories.json",handler);
     }
 
     public void AsyncLoadCategoryImages(final Context context, final  IDataRequestHandler dataHandler){
@@ -79,7 +79,7 @@ public class DataController implements IWebService{
                 for(int i=0;i<categories.size();i++){
                     final Category category = categories.get(i);
                     if(category.getIcon()==null){
-                        WebController.getInstance().DownloadImage(context, category.getName() + ".png", new IRequestHande<Bitmap>() {
+                        WebController.getInstance().DownloadImage(context,"data/"+ category.getName() + "/__cover.png", new IRequestHande<Bitmap>() {
                             public void onError(String reason) {
                                 Utils.Log(reason);
                                 dataHandler.onError(reason);

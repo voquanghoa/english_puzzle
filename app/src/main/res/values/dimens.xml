@@ -4,4 +4,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="main_menu_button_size">120dp</dimen>
+    <dimen name="puzzle_button_size">40dp</dimen>
+    <dimen name="puzzle_button_margin">10dp</dimen>
+    <dimen name="puzzle_keyboard_height">200dp</dimen>
+    <dimen name="puzzle_answer_character_size">30dp</dimen>
+    <dimen name="answer_text_size">5sp</dimen>
 </resources>
